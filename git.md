@@ -20,3 +20,8 @@ git commit -m "第一次提交"
 创建新的分支
 git branch -M main
 git push -u origin main
+
+<!-- 如果在创建仓库时创建了README.md文件 导致出现错误error: failed to push some refs to 'https://github.com/lingkong333/interview.git' -->
+<!-- 使用如下命令 -->
+## git pull --rebase origin master
+## git push -u origin master
