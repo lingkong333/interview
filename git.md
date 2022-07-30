@@ -4,6 +4,7 @@
 ## git checkout (branchname)  切换分支
 ## git merge 合并分支
 ## git branch -v 查看所有分支
+## git checkout -b dev 新建并切换到本地dev分支
 ## git push -u origin <本地分支名> 将本地分支与远程同名分支相关联
 ## git pull origin <远程分支名>:<本地分支名>  将远程指定分支 拉取到 本地指定分支上
 ## git pull origin <远程分支名>  将远程指定分支 拉取到 本地当前分支上
