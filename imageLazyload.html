@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+      }
+      img {
+        width: 600px;
+        height: 400px;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+        核心：
+            图片懒加载技术主要通过监听图片资源容器是否出现在视口区域内，来决定图片资源是否被加载。
+            那么实现图片懒加载技术的核心就是如何判断元素处于视口区域之内。
+
+            利用 Element.getBoundingClientRect() 方法判断目标元素与视口的交叉状态；
+            当目标元素与视口的交叉状态大于0时，将真实的图片链接赋给目标元素 src 属性
+     -->
+    <div class="container">
+      
+        <img src="" data-src="./images/1.jfif" />
+        <img src="" data-src="./images/2.jfif" />
+        <img src="" data-src="./images/3.jfif" />
+        <img src="" data-src="./images/4.jfif" />
+        <img src="" data-src="./images/5.jfif" />
+        <img src="" data-src="./images/6.jfif" />
+      
+    </div>
+
+    <script>
+        const windowHight = window.innerHeight
+        const image = document.getElementsByTagName('img')
+        console.log(windowHight)
+        lazyload()
+        window.onscroll = throttling(lazyload);
+        function lazyload() {
+            for(let i = 0; i < 6; i++) {
+                // console.log(image[i].getBoundingClientRect().top)
+                if(image[i].getBoundingClientRect().top <= windowHight) {
+                    console.log(';')
+                    image[i].src = image[i].getAttribute('data-src')
+                }
+            }
+        }
+
+        // 节流
+        function throttling(fn) {
+            let canRun = true
+            return function() {
+                if(!canRun) return
+                canRun = false
+                setTimeout(() => {
+                    fn.call(fn, arguments)
+                    canRun = true
+                }, 2000)
+            }
+        }
+    </script>
+  </body>
+</html>

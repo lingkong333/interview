@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数据双向绑定</title>
+  </head>
+  <body>
+    <!-- 
+        原理：
+            Vue 内部通过 Object.defineProperty方法属性拦截的方式，把 data 对象里每个数据的读写转化成 getter/setter，当数据变化时通知视图更新。
+     -->
+    <input id="input" type="text" />
+    <h2 id="show"></h2>
+
+    <script>
+      const input = document.getElementById("input");
+      const show = document.getElementById("show");
+    </script>
+  </body>
+</html>

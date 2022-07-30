@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file"></input>
+
+    
+</body>
+</html>
+<script>
+    /* 
+    将文件切成多个小的文件；
+    将切片并行上传；
+    所有切片上传完成后，服务器端进行切片合成；
+    当分片上传失败，可以在重新上传时进行判断，只上传上次失败的部分实现断点续传；
+    当切片合成为完整的文件，通知客户端上传成功；
+    */
+    createFileChunk = (dataSource, SIZE = 4 *1024*1024) => {
+        const fileChunkList = []
+        let cur = 0;
+        let index = 0; // 每个分片给一个索引，最后后端合并按序合并分片
+    }
+</script>
